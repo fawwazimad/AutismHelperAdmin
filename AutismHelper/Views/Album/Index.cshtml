@@ -1,0 +1,104 @@
+﻿@model AutismHelper.ViewModels.MainVM
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="pagetitle">
+    <h1>Album</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active">Data</li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div class="card">
+                <div class="card-body">
+
+                    <table class="table datatable">
+                        <thead>
+                            <tr>
+                                @*<th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>*@
+                                <th>
+                                    @Html.DisplayNameFor(model => model.AlbumRecord.IDD)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.AlbumRecord.URL)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.AlbumRecord.Label)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.AlbumRecord.Color)
+                                </th>
+                                <th>Edit</th>
+                                <th>Details</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.AlbumList)
+                            {
+                            <tr>
+                                @*<td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>*@
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IDD)
+                                </td>
+                                <td>
+                                    <img src="@item.URL" style="width:150px" />
+
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Label)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Color)
+                                </td>
+
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.IDD">
+
+
+                                        <i class=" ri-edit-circle-fill"></i>
+                                    </a>
+                                </td>
+                                <td>
+
+                                    <a asp-action="Details" asp-route-id="@item.IDD">
+
+
+                                        <i class=" ri-information-fill"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a asp-action="Delete" asp-route-id="@item.IDD">
+
+
+                                        <i class=" ri-delete-bin-5-fill"></i>
+                                    </a>
+                                </td>
+                                @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.IDD }) |
+            @Html.ActionLink("Details", "Details", new { id = item.IDD }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.IDD })
+        </td>*@
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

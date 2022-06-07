@@ -1,0 +1,85 @@
+﻿@model AutismHelper.ViewModels.MainVM
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="pagetitle">
+    <h1>
+        Edit Picture
+    </h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item"><a asp-action="Index">Picture</a></li>
+            <li class="breadcrumb-item active">    Edit Picture</li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
+
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-6">
+
+            <div class="card">
+                <div class="card-body">
+                    <br />
+                    <form asp-action="Edit" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="col-md-12" style="display:none">
+                            <label asp-for="PictureRecord.Id" class="control-label"></label>
+                            <input asp-for="PictureRecord.Id" class="form-control" />
+                            <span asp-validation-for="PictureRecord.Id" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12" style="display:none">
+                            <label asp-for="PictureRecord.IDD" class="control-label"></label>
+                            <input asp-for="PictureRecord.IDD" class="form-control" />
+                            <span asp-validation-for="PictureRecord.IDD" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12" style="display:none">
+                            <label asp-for="PictureRecord.URL" class="control-label"></label>
+                            <input asp-for="PictureRecord.URL" class="form-control" />
+                            <span asp-validation-for="PictureRecord.URL" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="control-label">Picture</label>
+                            <input asp-for="file" class="form-control" required/>
+
+                        </div>
+                        <div class="col-md-12">
+                            <label asp-for="PictureRecord.Label" class="control-label"></label>
+                            <input asp-for="PictureRecord.Label" class="form-control" required/>
+                            <span asp-validation-for="PictureRecord.Label" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label asp-for="PictureRecord.AlbumID" class="control-label"></label>
+                            <select asp-for="PictureRecord.AlbumID" required class="form-control"
+                                    asp-items="@(new SelectList(Model.AlbumList,"IDD","Label"))">
+                                <option selected disabled>-- Select Album -- </option>
+
+                            </select>
+                        </div>
+                        <div class="col-md-12">
+                            <label asp-for="PictureRecord.UserID" class="control-label"></label>
+                            <input asp-for="PictureRecord.UserID" class="form-control" required/>
+                            <span asp-validation-for="PictureRecord.UserID" class="text-danger"></span>
+                        </div>
+                     
+                        <div class="form-group">
+
+                            <input type="submit" value="Save" class="btn btn-primary">
+                            <a class="btn btn-secondary" asp-action="Index">Back to List</a>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+

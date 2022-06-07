@@ -1,0 +1,78 @@
+﻿@model AutismHelper.ViewModels.MainVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div class="pagetitle">
+    <h1>
+        Create About Us
+    </h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item"><a asp-action="Index">AboutUs</a></li>
+            <li class="breadcrumb-item active">    Create About Us</li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
+
+<h4> About Us</h4>
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-6">
+
+            <div class="card">
+                <div class="card-body">
+                    <br />
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        @*<div class="form-group">
+            <label asp-for="Id" class="control-label"></label>
+            <input asp-for="Id" class="form-control" />
+            <span asp-validation-for="Id" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="IDD" class="control-label"></label>
+            <input asp-for="IDD" class="form-control" />
+            <span asp-validation-for="IDD" class="text-danger"></span>
+        </div>*@
+                        <div class="col-md-12">
+                            <label asp-for="AboutUsRecord.Email" class="control-label"></label>
+                            <input asp-for="AboutUsRecord.Email" class="form-control" required />
+                            <span asp-validation-for="AboutUsRecord.Email" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label asp-for="AboutUsRecord.MobilePhone" class="control-label"></label>
+                            <input asp-for="AboutUsRecord.MobilePhone" class="form-control" required />
+                            <span asp-validation-for="AboutUsRecord.MobilePhone" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label asp-for="AboutUsRecord.Text" class="control-label"></label>
+                            <input asp-for="AboutUsRecord.Text" class="form-control" required />
+                            <span asp-validation-for="AboutUsRecord.Text" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label asp-for="AboutUsRecord.address" class="control-label"></label>
+                            <input asp-for="AboutUsRecord.address" class="form-control" required />
+                            <span asp-validation-for="AboutUsRecord.address" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+
+                            <input type="submit" value="Create" class="btn btn-primary">
+                            <a class="btn btn-secondary" asp-action="Index">Back to List</a>
+
+                        </div>
+                        @*<div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />
+            <a class="btn btn-secondary" asp-action="Index">Back to List</a>
+        </div>*@
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</section>

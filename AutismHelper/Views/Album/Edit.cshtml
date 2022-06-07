@@ -1,0 +1,105 @@
+﻿@model AutismHelper.ViewModels.MainVM
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+<div class="pagetitle">
+    <h1>
+        Edit Album
+    </h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item"><a asp-action="Index">Album</a></li>
+            <li class="breadcrumb-item active">    Edit Album</li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
+
+<h4>Album</h4>
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-6">
+
+            <div class="card">
+                <div class="card-body">
+                    <br />
+                    <form asp-action="Edit" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group" style="display:none">
+                            <label asp-for="AlbumRecord.Id" class="control-label"></label>
+                            <input asp-for="AlbumRecord.Id" class="form-control" />
+                            <span asp-validation-for="AlbumRecord.Id" class="text-danger"></span>
+                        </div>
+                        <div class="form-group" style="display:none">
+                            <label asp-for="AlbumRecord.IDD" class="control-label"></label>
+                            <input asp-for="AlbumRecord.IDD" class="form-control" />
+                            <span asp-validation-for="AlbumRecord.IDD" class="text-danger"></span>
+                        </div>
+                        <div class="form-group" style="display:none">
+                            <label asp-for="AlbumRecord.URL" class="control-label"></label>
+                            <input asp-for="AlbumRecord.URL" class="form-control" />
+                            <span asp-validation-for="AlbumRecord.URL" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="control-label"> Album Image URL</label>
+                            <input asp-for="file" class="form-control" required />
+
+                        </div>
+                        <div class="col-md-12">
+                            <label asp-for="AlbumRecord.Label" class="control-label"></label>
+                            <input asp-for="AlbumRecord.Label" class="form-control" required/>
+                            <span asp-validation-for="AlbumRecord.Label" class="text-danger"></span>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" asp-for="AlbumRecord.Color"></label>
+                            <div class="col-sm-12">
+                                <select class="form-select" asp-for="AlbumRecord.Color" aria-label="Default select example">
+                                    <option selected="">Open this select menu</option>
+                                    <option value="#000000">Black</option>
+                                    <option value="#FFFFFF">White</option>
+                                    <option value="#FF0000">Red</option>
+                                    <option value="#00FF00">Light Green</option>
+                                    <option value="#0000FF">Blue</option>
+                                    <option value="#FFFF00">Yellow</option>
+                                    <option value="#00FFFF">Light Blue</option>
+                                    <option value="#808080">Grey</option>
+                                    <option value="#800080">Purple</option>
+                                    <option value="#008000">Green</option>
+                                </select>
+                            </div>
+                        </div>
+                        @*<div class="col-md-12">
+                            <label asp-for="AlbumRecord.Color" class="control-label"></label>
+                            <select asp-for="AlbumRecord.Color" class="control-label">
+                                <option value="#000000">Black</option>
+                                <option value="#FFFFFF">White</option>
+                                <option value="#FF0000">Red</option>
+                                <option value="#00FF00">Light Green</option>
+                                <option value="#0000FF">Blue</option>
+                                <option value="#FFFF00">Yellow</option>
+                                <option value="#00FFFF">Light Blue</option>
+                                <option value="#808080">Grey</option>
+                                <option value="#800080">Purple</option>
+                                <option value="#008000">Green</option>
+                            </select>
+                        </div>*@
+
+                        <div class="form-group">
+
+                            <input type="submit" value="Save" class="btn btn-primary">
+                            <a class="btn btn-secondary" asp-action="Index">Back to List</a>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+

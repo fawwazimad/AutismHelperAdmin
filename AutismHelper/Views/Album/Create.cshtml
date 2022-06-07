@@ -1,0 +1,54 @@
+﻿@model AutismHelper.ViewModels.MainVM
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Album</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+          
+            <div class="form-group">
+                <label class="control-label"> Album Image URL</label>
+                <input asp-for="file" class="form-control" />
+                
+            </div>
+            <div class="form-group">
+                <label asp-for="AlbumRecord.Label" class="control-label"></label>
+                <input asp-for="AlbumRecord.Label" class="form-control" />
+                <span asp-validation-for="AlbumRecord.Label" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AlbumRecord.Color" class="control-label"></label>
+                <select asp-for="AlbumRecord.Color" class="control-label">
+                    <option value="#000000">Black</option>
+                    <option value="#FFFFFF">White</option>
+                    <option value="#FF0000">Red</option>
+                    <option value="#00FF00">Light Green</option>
+                    <option value="#0000FF">Blue</option>
+                    <option value="#FFFF00">Yellow</option>
+                    <option value="#00FFFF">Light Blue</option>
+                    <option value="#808080">Grey</option>
+                    <option value="#800080">Purple</option>
+                    <option value="#008000">Green</option>
+                    
+
+                </select>
+                <span asp-validation-for="AlbumRecord.Color" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
